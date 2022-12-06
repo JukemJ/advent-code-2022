@@ -25,9 +25,7 @@ let instructions = input.slice(10).map(x => x.split(' ')).map(x => [+x[1],+x[3],
 
 //move x from y to z
 for(let step of instructions){
-    while(step[0]){
-        stacks[step[2]-1].unshift(stacks[step[1]-1].shift())
-        step[0]--
-    }
+    console.log(step)
+    stacks[step[2]-1] = stacks[step[1]-1].splice(0,step[0]).concat(stacks[step[2]-1])    
 }
 console.log(stacks.map(x => x[0]).join())
